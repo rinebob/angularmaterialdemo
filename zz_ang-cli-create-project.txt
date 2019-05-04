@@ -1,0 +1,95 @@
+Project:  angular material demo
+Angular cli commands to create the Project
+from tutorial:  https://www.sitepoint.com/angular-material-design-components/
+
+if the angular cli is not installed, cd into parent directory
+install with:
+
+npm install -g @angular/cli
+
+Create the project with angular cli:
+
+ng new angularmaterialdemo (add --routing to include routing in the project build)
+
+serve the app by running:
+
+cd angularmaterialdemo
+ng serve
+
+go to http://localhost:4200 to view the app
+
+Create angular components and routing configurations:
+
+ng g component login
+ng g component CustomerList
+ng g component Customer Create
+
+Open src/app/app.module.ts and add the router configuration
+
+/*...*/
+
+import { RouterModule, Routes } from  '@angular/router';
+
+const  appRoutes:  Routes  = [
+	{ path:  'customer-list', component:  CustomerListComponent },
+	{ path:  'customer-create', component:  CustomerCreateComponent },
+	{ path:  'login', component:  LoginComponent},
+	{ path:  '', redirectTo:  '/login', pathMatch:  'full' },
+];
+
+/*...*/ end
+
+Install Angular material and angular cdk in project directory:
+
+npm install --save @angular/material @angular/cdk
+
+Add HammerJS for gestures support
+
+npm install --save hammerjs
+
+In src/main.js, import hammer.js
+
+import 'hammerjs';
+
+Add a theme.  In styles.css, add:
+
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+Themes guide:  https://material.angular.io/guide/theming
+
+Add Angular Material Icons:
+In index.html, add:
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+Use Animations with Angular Material components.  Install in project folder:
+
+npm install --save @angular/animations
+
+In src/app/app.module.ts add:
+
+/* ... */
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+
+@NgModule({
+/*...*/
+imports: [
+BrowserModule,
+BrowserAnimationsModule,
+],
+})
+export  class  AppModule { }
+
+/* ... */ end
+
+Go to tutorial for remaining code
+END
+
+
+
+
+
+
+
+
+
